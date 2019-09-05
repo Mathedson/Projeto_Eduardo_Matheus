@@ -1,6 +1,6 @@
 from random import *
 from numpy import *
-class Pessoa():
+class Pessoa:
     def __init__(self):
         self.modalidade = random.multinomial(100,[0.654 + random.uniform(-0.008,0.008),0.6])[0] #ocupado
         self.ensino     = random.multinomial(100,[0.22 + random.uniform(-0.081,0.081),0.6])[0] #publico
@@ -15,3 +15,13 @@ class Pessoa():
         self.sexo= 'Homem' if self.sexo < random.uniform(0,100) else 'Mulher'
         self.cor = 'Preta ou parda' if self.cor < random.uniform(0,100) else 'Branca'
         self.modalidade = 'Homem' if self.modalidade < random.uniform(0,100) else 'À distância'
+
+class Populacao:
+    def __init__(self,tamanho = 1000):
+        self.tamanho = tamanho
+        self.individuos = []
+        self.amostra(tamanho)
+
+    def amostra(self,pop):
+        for i in range(pop):
+            self.individuos.append(Pessoa())
